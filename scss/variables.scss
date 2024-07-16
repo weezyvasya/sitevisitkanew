@@ -1,0 +1,10 @@
+
+@mixin position ($x) {
+    display: flex;
+    justify-content: $x;
+    align-items: center;
+}
+
+$container:  1200px;
+
+
