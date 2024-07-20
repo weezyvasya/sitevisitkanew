@@ -4,7 +4,22 @@
     @include position(space-between);
 }
 .header-list {
+    list-style: none;
     & > li {
         display: inline-block;
+        }    
     }
+.header-link{
+    text-decoration: none;
+    color: $colorText;
+    margin-right: 10px;
+    &:last-child{
+        margin-right: 0px;
+    }
+}
+
+.header{
+    background-color: $mainColor;
+    color: $colorText;
+
 }

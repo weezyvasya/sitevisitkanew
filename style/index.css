@@ -13,15 +13,14 @@ body {
 
 .layout {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   height: 100vh; }
 
 .container {
   max-width: 1200px;
   padding: 5px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  height: 100%; }
 
 .header {
   width: 100%;
@@ -47,5 +46,18 @@ body {
   justify-content: space-between;
   align-items: center; }
 
-.header-list > li {
-  display: inline-block; }
+.header-list {
+  list-style: none; }
+  .header-list > li {
+    display: inline-block; }
+
+.header-link {
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 10px; }
+  .header-link:last-child {
+    margin-right: 0px; }
+
+.header {
+  background-color: #161b22;
+  color: #ffffff; }
