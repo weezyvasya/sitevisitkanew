@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
     @include position(space-between);
+    
 }
 .header-list {
     list-style: none;
@@ -21,6 +22,12 @@
 .header{
     background-color: $supportColor;
     color: $colorText;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    opacity: 0.5;
 
 }
 .header-btn{

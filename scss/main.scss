@@ -1,4 +1,14 @@
 main{
+    padding-top: 80px;
     background-color: $mainColor;
     color: white;
+}
+.main-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.main-section{
+    flex: 1 0 500px;
+    border: 1px solid yellow;
 }
