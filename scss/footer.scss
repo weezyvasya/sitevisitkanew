@@ -1,0 +1,9 @@
+footer{
+    background-color: $supportColor;
+    color: white;
+}
+.footer-content{
+    width: 100%;
+    height: 100%;
+    @include position(space-between);
+}
