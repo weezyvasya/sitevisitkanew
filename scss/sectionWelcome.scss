@@ -1,8 +1,18 @@
 .section-welcome{
-    background-image: url('../img/fon.jpg');
+    background-image: url('../img/welcom.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     object-fit: cover;
     backdrop-filter: blur(10px);
 }
+.section-content{
+    height: 100%;
+}
+.welcome-content {
+    @include position(center)
+}
+.welcome-content-title{
+    text-align: center;
+}
+

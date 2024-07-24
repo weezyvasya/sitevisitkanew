@@ -45,7 +45,7 @@
 .header-btn_click span{
     transition: all 0.3s;
 }
-header-btn_click::before{
+.header-btn_click::before{
     content: '';
     position: absolute;
     bottom: 0;
@@ -84,4 +84,13 @@ header-btn_click::before{
 .header-btn_click:hover::after {
     opacity: 0;	
     transform: scale(0.1, 1);
+}
+.header-logo{
+    text-decoration: none;
+    color: white;
+    background: linear-gradient( 45deg, blue,red );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
 }
