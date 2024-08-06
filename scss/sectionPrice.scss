@@ -1,0 +1,35 @@
+.price-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.section-cards{
+    @include position(space-around);
+    width: 80%;
+}
+.section-cards__card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 380px;
+}
+.card-header__img{
+    width: 300px;
+    height: 200px;
+}
+.card-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+.card-footer__title{
+    text-align: center;
+}
+.card-footer__btn{
+   
+}
