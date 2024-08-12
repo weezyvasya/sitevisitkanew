@@ -1,0 +1,26 @@
+.form {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    border: 1px solid white;
+    border-radius: 5%;
+    padding: 70px;
+    @include position(space-around);
+    flex-direction: column; 
+    &-row {
+        width: 100%;
+        flex: 1 0 70%;
+        @include position(space-between);
+    }
+    &-column{
+        @include position(center);
+        flex-direction: column;
+        flex: 1 0 50%;
+        height: 100%;
+    }
+
+}
+
+.base-inpt__margin:not(:last-child) {
+    margin-bottom: 30px;
+}
