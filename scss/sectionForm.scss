@@ -3,7 +3,7 @@
     height: 100%;
     margin: 0 auto;
     border: 1px solid white;
-    border-radius: 5%;
+    border-radius: $borderRadiusMain;
     padding: 70px;
     @include position(space-around);
     flex-direction: column; 

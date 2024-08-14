@@ -32,10 +32,13 @@
 
 .header-logo{
     text-decoration: none;
-    color: white;
+    color: $mainTextColor;
     background: linear-gradient( 45deg, blue,red );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 19px;
+}
+.base-btn-a{
+    text-decoration: none;
 }

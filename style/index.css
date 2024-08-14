@@ -71,6 +71,9 @@ body {
   -webkit-text-fill-color: transparent;
   font-size: 19px; }
 
+.base-btn-a {
+  text-decoration: none; }
+
 main {
   background-color: #161b22;
   color: white; }
