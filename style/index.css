@@ -161,7 +161,7 @@ footer {
 
 .section-cards {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
@@ -170,7 +170,7 @@ footer {
 .section-cards__card {
   display: flex;
   flex-direction: column;
-  flex: 1 0 32.33%;
+  flex: 0 0 32.33%;
   height: 450px;
   overflow: hidden;
   border-radius: 5%;
@@ -209,7 +209,8 @@ footer {
   border-radius: 10px;
   color: white;
   text-transform: uppercase;
-  transition: 0.5s; }
+  transition: 0.5s;
+  text-decoration: none; }
   .base-btn:hover {
     transition: 0.5s;
     color: #57606a;

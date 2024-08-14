@@ -10,7 +10,7 @@
     }
 }
 .section-cards{
-    @include position(center);
+    @include position(start);
     width: 100%;
     flex-wrap: wrap;
     gap: 8px;
@@ -18,7 +18,7 @@
 .section-cards__card {
     display: flex;
     flex-direction: column;
-    flex: 1 0 32.33%;
+    flex: 0 0 32.33%;
     height: 450px;
     overflow: hidden;
     border-radius: $borderRadiusMain;
