@@ -1,6 +1,8 @@
 const cardsSection = document.querySelector('.section-cards')
 const form = document.querySelector('.section-form')
 const btnHeader = document.querySelector('.base-btn')
+
+
 let arrCards = [ {img: './img/individual.jpeg', title: 'Индивидуальные занятия английским', price: 2500},
                  {img: './img/chinaclass.jpg', title: 'Индивидуальные занятия китайским', price: 2500},
                  {img: './img/изучение-китайского-в-группах.jpg', title: 'Групповые занятия', price: 1500}]
@@ -14,15 +16,18 @@ function render () {
                                 <div class="card-footer">
                                     <h3 class="card-footer__title">${card.title}</h3>
                                     <p class="card-footer__subtitle">Стоимость ${card.price} рублей</p>
-                                    <button class="base-btn">Оставить заявку</button>
+                                    <a class="base-btn base-btn-card" data-title='${card.title}' data-price=${card.price} href='#form'>Оставить заявку</a>
                                 </div>
                             </div>`
+        document.querySelectorAll('.base-btn-card').forEach((cardBtn) => {
+            cardBtn.addEventListener('click', handleCardBtn)
+        })
     })
 }
 render()
 
 
-function renderForm() {
+function renderForm(title = '', price = '', flag = false) {
     form.innerHTML = `<div class="container">
                         <form id="form" class="form" action="#">
                             <h3>Форма</h3>
@@ -32,20 +37,46 @@ function renderForm() {
                                    <input class="base-inpt base-inpt__margin" type="text" placeholder="Фамилия">
                                    <input class="base-inpt base-inpt__margin" type="phone" placeholder="Телефон">
                                 </div>
-                                <div class="form-column">
-                                   вфцвцфв
-                                </div>
+                                ${flag 
+                                    ? `<div class="form-column">
+                                          <ul>
+                                            <li>${title}</li>
+                                            <li>${price}</li>
+                                          </ul>
+                                       </div>` 
+                                    : '' }
                             </div>
-                            <button class="base-btn">Отправить</button>
+                            <button class="base-btn base-btn-send">Отправить</button>
                         </form>
                     </div>`
+    const btnSend = document.querySelector('.base-btn-send')
+         flag ? btnSend.addEventListener('click', sendAll) 
+              : btnSend.addEventListener('click', send)
 }
 
-btnHeader.addEventListener('click', renderForm())
+function handleCardBtn (e) {
+      let el = e.target
+      renderForm(el.dataset.title, el.dataset.price, true)
+}
+
+
+function send () {
+    console.log('send')
+}
+
+
+function sendAll () {
+    console.log('sendAll')
+}
+
+btnHeader.addEventListener('click', renderForm)
 
 
 
 
+
+
+// дз сделать функции send и sendAll и сделать валидацию телефона
 
 
 
