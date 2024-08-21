@@ -2,6 +2,19 @@ const cardsSection = document.querySelector('.section-cards')
 const form = document.querySelector('.section-form')
 const btnHeader = document.querySelector('.base-btn')
 
+let clients = [
+    {
+      name: "Vasya",
+      surname: "Kopkarev",
+      phone: "89150884359",
+    },
+    {
+        name: "Anastasia",
+        surname: "Krainova",
+        phone: "89163397047",
+    },
+  ];
+
 
 let arrCards = [ {img: './img/individual.jpeg', title: 'Индивидуальные занятия английским', price: 2500},
                  {img: './img/chinaclass.jpg', title: 'Индивидуальные занятия китайским', price: 2500},
@@ -33,9 +46,9 @@ function renderForm(title = '', price = '', flag = false) {
                             <h3>Форма</h3>
                             <div class="form-row">
                                 <div class="form-column">
-                                   <input class="base-inpt base-inpt__margin" type="text" placeholder="Имя">
-                                   <input class="base-inpt base-inpt__margin" type="text" placeholder="Фамилия">
-                                   <input class="base-inpt base-inpt__margin" type="phone" placeholder="Телефон">
+                                   <input class="base-inpt base-inpt__margin inpt-name" type="text" placeholder="Имя">
+                                   <input class="base-inpt base-inpt__margin inpt-surname" type="text" placeholder="Фамилия">
+                                   <input class="base-inpt base-inpt__margin inpt-phone" type="phone" placeholder="Телефон">
                                 </div>
                                 ${flag 
                                     ? `<div class="form-column">
@@ -52,7 +65,33 @@ function renderForm(title = '', price = '', flag = false) {
     const btnSend = document.querySelector('.base-btn-send')
          flag ? btnSend.addEventListener('click', sendAll) 
               : btnSend.addEventListener('click', send)
+    const inptName = document.querySelector('.inpt-name')
+    const inptSurname = document.querySelector('.inpt-surname')
+    const inptPhone = document.querySelector('.inpt-phone')
+
+    function validationForm() {
+        if (inptName.value !== "" && inptSurname.value !== "" && inptPhone !== "") {
+            btnSend.disabled = false;
+        } else {
+            btnSend.disabled = true;
+        }
+      } 
+      function send () {
+        if (inptName.value !== "" && inptText.value !== "") {
+            const newClient = {
+              name: getSafeHtmlString(inptName.value),
+              surname: getSafeHtmlString(inptSurname.value),
+              phone: getSafeHtmlString(inptPhone.value) ,
+            };
+    clients.push(newClient)
+    console.log(clients)
+        }
+    }
+      validationForm()
+      send()
+      
 }
+
 
 function handleCardBtn (e) {
       let el = e.target
@@ -61,8 +100,18 @@ function handleCardBtn (e) {
 
 
 function send () {
-    console.log('send')
+    if (inptName.value !== "" && inptText.value !== "") {
+        const newClient = {
+          name: getSafeHtmlString(inptName.value),
+          surname: getSafeHtmlString(inptSurname.value),
+          phone: getSafeHtmlString(inptPhone.value) ,
+        };
+clients.push(newClient)
+console.log(clients)
+    }
 }
+
+
 
 
 function sendAll () {
@@ -70,6 +119,8 @@ function sendAll () {
 }
 
 btnHeader.addEventListener('click', renderForm)
+
+
 
 
 
