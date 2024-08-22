@@ -1,6 +1,10 @@
 const cardsSection = document.querySelector('.section-cards')
 const form = document.querySelector('.section-form')
 const btnHeader = document.querySelector('.base-btn')
+let inptNameValue = ''
+let inptSurnameValue = ''
+let inptPhoneValue = ''
+
 
 let clients = [
     {
@@ -62,35 +66,26 @@ function renderForm(title = '', price = '', flag = false) {
                             <button class="base-btn base-btn-send">Отправить</button>
                         </form>
                     </div>`
-    const btnSend = document.querySelector('.base-btn-send')
-         flag ? btnSend.addEventListener('click', sendAll) 
-              : btnSend.addEventListener('click', send)
     const inptName = document.querySelector('.inpt-name')
     const inptSurname = document.querySelector('.inpt-surname')
-    const inptPhone = document.querySelector('.inpt-phone')
+    const inptPhone = document.querySelector('.inpt-phone') 
+    const btnSend = document.querySelector('.base-btn-send')
+    btnSend.disabled = true
+    btnSend.addEventListener('click', () => send(flag,title,price))
 
-    function validationForm() {
-        if (inptName.value !== "" && inptSurname.value !== "" && inptPhone !== "") {
-            btnSend.disabled = false;
-        } else {
-            btnSend.disabled = true;
-        }
-      } 
-      function send () {
-        if (inptName.value !== "" && inptText.value !== "") {
-            const newClient = {
-              name: getSafeHtmlString(inptName.value),
-              surname: getSafeHtmlString(inptSurname.value),
-              phone: getSafeHtmlString(inptPhone.value) ,
-            };
-    clients.push(newClient)
-    console.log(clients)
-        }
-    }
-      validationForm()
-      send()
+              inptName.addEventListener('input', (e) => {
+                inptNameValue = e.target.value
+                validation(btnSend)})
+              inptSurname.addEventListener('input', (e) => {
+                inptSurnameValue = e.target.value
+                validation(btnSend)})
+              inptPhone.addEventListener('input', (e) => {
+                inptPhoneValue = e.target.value
+                validation(btnSend)})
+              
       
 }
+
 
 
 function handleCardBtn (e) {
@@ -98,25 +93,38 @@ function handleCardBtn (e) {
       renderForm(el.dataset.title, el.dataset.price, true)
 }
 
+function validation(btn){
+if (inptNameValue !== '' && inptSurnameValue !== '' && inptPhoneValue !== ''){
+    btn.disabled = false
 
-function send () {
-    if (inptName.value !== "" && inptText.value !== "") {
-        const newClient = {
-          name: getSafeHtmlString(inptName.value),
-          surname: getSafeHtmlString(inptSurname.value),
-          phone: getSafeHtmlString(inptPhone.value) ,
-        };
-clients.push(newClient)
-console.log(clients)
+} else{
+    btn.disabled = true
+}
+}
+
+
+function send (flag,title,price) {
+if (flag){
+    let order = {
+        name: inptNameValue,
+        surname: inptSurnameValue,
+        phone: inptPhoneValue,
+        target : {
+            targetTitle: title,
+            targetPrice: price
+        }  
     }
+    console.log(order)
+}else{
+    let call = {
+        name: inptNameValue,
+        surname: inptSurnameValue,
+        phone: inptPhoneValue,
+    }
+    
+}
 }
 
-
-
-
-function sendAll () {
-    console.log('sendAll')
-}
 
 btnHeader.addEventListener('click', renderForm)
 
@@ -127,7 +135,7 @@ btnHeader.addEventListener('click', renderForm)
 
 
 
-// дз сделать функции send и sendAll и сделать валидацию телефона
+// дз сделать валидацию телефона
 
 
 
