@@ -52,7 +52,7 @@ function renderForm(title = '', price = '', flag = false) {
                                 <div class="form-column">
                                    <input class="base-inpt base-inpt__margin inpt-name" type="text" placeholder="Имя">
                                    <input class="base-inpt base-inpt__margin inpt-surname" type="text" placeholder="Фамилия">
-                                   <input class="base-inpt base-inpt__margin inpt-phone" type="phone" placeholder="Телефон">
+                                   <input class="base-inpt base-inpt__margin inpt-phone" type="tel" id="phone" name="phone" placeholder="Телефон">
                                 </div>
                                 ${flag 
                                     ? `<div class="form-column">
@@ -82,6 +82,11 @@ function renderForm(title = '', price = '', flag = false) {
               inptPhone.addEventListener('input', (e) => {
                 inptPhoneValue = e.target.value
                 validation(btnSend)})
+              inptPhone.addEventListener('input', (e) => {
+                    inptPhoneValue = e.target.value
+                    validationPhone(btnSend)})
+
+              
               
       
 }
@@ -100,6 +105,15 @@ if (inptNameValue !== '' && inptSurnameValue !== '' && inptPhoneValue !== ''){
 } else{
     btn.disabled = true
 }
+}
+
+function validationPhone(btn){
+    if (inptPhoneValue !== Number){
+        btn.disabled = true
+    
+    } else{
+        btn.disabled = false
+    }
 }
 
 
@@ -135,7 +149,7 @@ btnHeader.addEventListener('click', renderForm)
 
 
 
-// дз сделать валидацию телефона
+// дз сделать валидацию телефона и валидация имени фамилии. Валидация во время создания инпутовю Перед присвиванием значения в поле
 
 
 
