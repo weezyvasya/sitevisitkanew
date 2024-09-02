@@ -1,10 +1,17 @@
 const cardsSection = document.querySelector('.section-cards')
 const form = document.querySelector('.section-form')
 const btnHeader = document.querySelector('.base-btn')
+const popUp = document.getElementById('myPop-up')
+const popUpContent = document.querySelector('.pop-up-content')
+const exitBtn = document.querySelector('.pop-up-exit')
 let inptNameValue = ''
 let inptSurnameValue = ''
 let inptPhoneValue = ''
 
+const error = {
+    form: "Введите корретктные данные",
+    request: "Ошибка при отправке данных"
+}
 
 let clients = [
     {
@@ -71,20 +78,22 @@ function renderForm(title = '', price = '', flag = false) {
     const inptPhone = document.querySelector('.inpt-phone') 
     const btnSend = document.querySelector('.base-btn-send')
     btnSend.disabled = true
-    btnSend.addEventListener('click', () => send(flag,title,price))
+    btnSend.style.pointerEvents = 'none'
+    btnSend.addEventListener('click', (e) =>  {
+       e.preventDefault()
+       send(flag,title,price)
+    })
 
               inptName.addEventListener('input', (e) => {
                 inptNameValue = e.target.value
-                validation(btnSend)})
+                btnDisablesOnOff(btnSend)})
               inptSurname.addEventListener('input', (e) => {
                 inptSurnameValue = e.target.value
-                validation(btnSend)})
+                btnDisablesOnOff(btnSend)})
               inptPhone.addEventListener('input', (e) => {
                 inptPhoneValue = e.target.value
-                validation(btnSend)})
-              inptPhone.addEventListener('input', (e) => {
-                    inptPhoneValue = e.target.value
-                    validationPhone(btnSend)})
+                btnDisablesOnOff(btnSend)})
+            
 
               
               
@@ -98,26 +107,53 @@ function handleCardBtn (e) {
       renderForm(el.dataset.title, el.dataset.price, true)
 }
 
-function validation(btn){
+function btnDisablesOnOff(btn){
 if (inptNameValue !== '' && inptSurnameValue !== '' && inptPhoneValue !== ''){
     btn.disabled = false
-
+    btn.style.pointerEvents = 'auto'
 } else{
     btn.disabled = true
+    btn.style.pointerEvents = 'none'
 }
+}
+function exit(){
+    popUp.classList.remove('pop-up__active')
 }
 
-function validationPhone(btn){
-    if (inptPhoneValue !== Number){
-        btn.disabled = true
-    
-    } else{
-        btn.disabled = false
-    }
+function validationPhone(str){
+  if (str.length !== 10) return false
+  return Number(str) ? str : false
 }
+
+function validationNameSurname(str){
+    let arr = str.split('')
+    let result = arr.find(num => Number(num))
+    if (result){
+        return false
+    } else{
+        return str
+    }
+    
+    }
+    // for (let i = 0; i <= arr.length; i++){
+    //     if (Number(arr[i])){
+    //         return false
+    //     } else {
+    //         continue
+    //     }
+    // }
+    // return str
+
+
+// console.log(validationPhone('34343455'))
+// console.log(validationNameSurname('MJNkmk'))
 
 
 function send (flag,title,price) {
+
+if (validationPhone(inptPhoneValue)
+    && validationNameSurname(inptNameValue)
+    && validationNameSurname(inptSurnameValue)){
 if (flag){
     let order = {
         name: inptNameValue,
@@ -134,13 +170,20 @@ if (flag){
         name: inptNameValue,
         surname: inptSurnameValue,
         phone: inptPhoneValue,
-    }
-    
+    } 
+    console.log(call) 
 }
+    }
+    else {
+        // alert('введите корректные данные')
+        popUp.classList.add('pop-up__active')
+        popUpContent.innerHTML = `введите корректные данные`
+    }
 }
 
 
 btnHeader.addEventListener('click', renderForm)
+exitBtn.addEventListener('click', exit)
 
 
 
@@ -194,3 +237,4 @@ btnHeader.addEventListener('click', renderForm)
 // b()
 
 
+//дз переписать функцию валидацию имени фамилии через метод find. В попап верхний правый угол добавить крестик с помощью абсолютному позиционированию. Написать функцию управления попапом, функция должна манипулировать классами. Одна функция открывет , вторая закрывает.Подумать как упростить логику функции send 
