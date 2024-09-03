@@ -268,7 +268,8 @@ footer {
   height: 350px;
   border: 1px solid white;
   border-radius: 5%;
-  background-color: #0d1117; }
+  background-color: #0d1117;
+  position: relative; }
 
 .pop-up-content {
   width: 100%;
@@ -288,4 +289,5 @@ footer {
 .pop-up-exit {
   width: 30px;
   height: 30px;
-  position: absolute; }
+  position: absolute;
+  right: 0px; }
