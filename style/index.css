@@ -84,12 +84,16 @@ main {
   height: 100%; }
 
 .main-section {
-  flex: 1 0 100vh;
   padding-bottom: 50px; }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; }
+
+.nerko-one-regular {
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal; }
 
 footer {
   background-color: #0d1117;
@@ -108,7 +112,8 @@ footer {
   background-size: cover;
   background-position: center;
   object-fit: cover;
-  backdrop-filter: blur(10px); }
+  backdrop-filter: blur(10px);
+  flex: 1 0 100vh; }
 
 .section-content {
   height: 100%; }
@@ -149,6 +154,9 @@ footer {
 .about-img {
   height: 768px;
   width: 475px; }
+
+.section-about {
+  flex: 1 0 100vh; }
 
 .price-content__title {
   text-align: center; }
@@ -201,6 +209,9 @@ footer {
 
 .card-footer__title {
   text-align: center; }
+
+.section-price {
+  flex: 1 0 100vh; }
 
 .base-btn {
   background-color: #57606a;
