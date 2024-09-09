@@ -53,7 +53,7 @@ function render() {
                                 <div class="card-footer">
                                     <h3 class="card-footer__title">${card.title}</h3>
                                     <p class="card-footer__subtitle">Стоимость ${card.price} рублей</p>
-                                    <a class="base-btn base-btn-card" data-title='${card.title}' data-price=${card.price} href='#form'>Оставить заявку</a>
+                                    <a class="base-btn-card base-btn" data-title='${card.title}' data-price=${card.price} href='#form'>Оставить заявку</a>
                                 </div>
                             </div>`;
     document.querySelectorAll(".base-btn-card").forEach((cardBtn) => {

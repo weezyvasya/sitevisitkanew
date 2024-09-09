@@ -104,7 +104,8 @@ footer {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  font-size: 20px; }
 
 .section-welcome {
   background-image: url("../img/welcom.png");
@@ -124,7 +125,8 @@ footer {
   align-items: center; }
 
 .welcome-content-title {
-  text-align: center; }
+  text-align: center;
+  text-shadow: 1px 1px 20px black; }
 
 .about-content {
   display: flex;
@@ -210,6 +212,9 @@ footer {
 .card-footer__title {
   text-align: center; }
 
+.base-btn-card {
+  padding: 6px 12px; }
+
 .section-price {
   flex: 1 0 100vh; }
 
@@ -221,7 +226,20 @@ footer {
   color: white;
   text-transform: uppercase;
   transition: 0.5s;
-  text-decoration: none; }
+  text-decoration: none;
+  position: relative; }
+  .base-btn::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0%;
+    background-color: #57606a;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width .4s ease-in-out; }
+  .base-btn:hover:after {
+    width: 90%; }
   .base-btn:hover {
     transition: 0.5s;
     color: #57606a;
@@ -238,7 +256,7 @@ footer {
 
 .form {
   width: 80%;
-  height: 100%;
+  min-height: 600px;
   margin: 0 auto;
   border: 1px solid white;
   border-radius: 5%;

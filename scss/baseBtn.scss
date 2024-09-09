@@ -7,13 +7,28 @@
     text-transform: uppercase;
     transition: 0.5s;
     text-decoration: none;
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 0%;
+        background-color: $btnColor;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width .4s ease-in-out;
+
+    }
+    &:hover:after {
+        width: 90%;
+    }
     &:hover {
         transition: 0.5s;
         color: $btnColor;
         background-color: white;
         cursor: pointer;
         box-shadow: 0px 0px 3px 0px white;
-        
     }
 
 }
